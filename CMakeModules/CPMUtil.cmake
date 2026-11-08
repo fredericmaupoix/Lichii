@@ -153,7 +153,7 @@ function(get_package_url)
             set(url
                 "${url}/releases/download/${ARG_VERSION}/${ARG_ARTIFACT}")
         else()
-            set(url "https://codeload.github.com/${ARG_REPO}/tar.gz/${ARG_VERSION}")
+            set(url "${url}/archive/${ARG_VERSION}.tar.gz")
         endif()
     else()
         fatal("${package}: No URL or repository defined")
@@ -311,10 +311,6 @@ function(fetch_package)
 
     # Download
     set(file ${path_parent}/${base_filename})
-        set(file ${path_parent}/${base_filename})
-    if(ARG_URL MATCHES "^https://codeload.github.com/")
-        set(file "${path_parent}/${base_filename}.tar.gz")
-    endif()
     cpm_download(${ARG_URL} ${file} ${ARG_HASH})
 
     # Extract
