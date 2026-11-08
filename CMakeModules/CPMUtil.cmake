@@ -311,8 +311,11 @@ function(fetch_package)
 
     # Download
     set(file ${path_parent}/${base_filename})
+        set(file ${path_parent}/${base_filename})
+    if(ARG_URL MATCHES "^https://codeload.github.com/")
+        set(file "${path_parent}/${base_filename}.tar.gz")
+    endif()
     cpm_download(${ARG_URL} ${file} ${ARG_HASH})
-    echo("Downloaded ${base_filename}")
 
     # Extract
     echo("Extracting ${file}...")
