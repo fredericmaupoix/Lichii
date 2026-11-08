@@ -153,7 +153,7 @@ function(get_package_url)
             set(url
                 "${url}/releases/download/${ARG_VERSION}/${ARG_ARTIFACT}")
         else()
-            set(url "${url}/archive/${ARG_VERSION}.tar.gz")
+            set(url "https://codeload.github.com/${ARG_REPO}/tar.gz/${ARG_VERSION}")
         endif()
     else()
         fatal("${package}: No URL or repository defined")
