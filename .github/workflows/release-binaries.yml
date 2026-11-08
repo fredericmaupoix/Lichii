@@ -66,7 +66,7 @@ jobs:
               -f "ref=refs/tags/$tag" -f "sha=$GITHUB_SHA"
           fi
 
-   build:
+  build:
     name: ${{ matrix.platform }} binary
     needs: prepare-release
     runs-on: ${{ matrix.runner }}
