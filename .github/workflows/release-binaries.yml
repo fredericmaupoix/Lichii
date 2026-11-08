@@ -343,6 +343,7 @@ jobs:
 
       - name: Stop sccache on Windows
         if: always() && startsWith(matrix.platform, 'windows') && steps.compiler-cache.outcome == 'success'
+        continue-on-error: true
         shell: pwsh
         run: sccache --stop-server
 
